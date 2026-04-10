@@ -84,7 +84,7 @@ export default function App() {
         </motion.h1>
 
         {/* Link cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div className="link-grid">
           {links.map((link) => {
             const Icon = link.icon
             return (
