@@ -38,13 +38,13 @@ jobs:
       - name: Update image tag in deployment manifest
         run: |
           sed -i "s|krapi0314/homepage:.*|krapi0314/homepage:${{ env.IMAGE_TAG }}|" \
-            homeserver/homepage/deployment.yaml
+            homeserver/k8s/homepage/deployment.yaml
 
       - name: Commit and push manifest update
         run: |
           cd homeserver
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add homepage/deployment.yaml
+          git add k8s/homepage/deployment.yaml
           git commit -m "deploy: homepage ${{ env.IMAGE_TAG }}"
           git push
