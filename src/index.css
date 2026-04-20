@@ -28,9 +28,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 52rem;
-  margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
 }
 
 .bg-blobs {
@@ -206,9 +204,6 @@ body {
 /* ── Responsive ── */
 
 @media (max-width: 768px) {
-  .page-root {
-    padding: 0 1.25rem;
-  }
 
   .app-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -217,10 +212,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .page-root {
-    padding: 0 1rem;
-  }
-
   .site-header {
     padding: 1.25rem 0 1.1rem;
   }
