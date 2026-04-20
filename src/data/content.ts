@@ -16,4 +16,10 @@ export const apps = [
     url: 'https://karaoke.kevinprk.com',
     emoji: '🎤',
   },
+  {
+    name: 'Plumber',
+    description: 'Network toolbox — IP check and DNS lookup',
+    url: 'https://plumber.kevinprk.com',
+    emoji: '🔧',
+  },
 ]
