@@ -22,4 +22,10 @@ export const apps = [
     url: 'https://plumber.kevinprk.com',
     emoji: '🔧',
   },
+  {
+    name: 'Tiny',
+    description: 'URL shortener with QR code generation',
+    url: 'https://tiny.kevinprk.com',
+    emoji: '🔗',
+  },
 ]
