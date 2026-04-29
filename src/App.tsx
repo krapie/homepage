@@ -63,24 +63,25 @@ export default function App() {
 
   return (
     <div className="page-root">
-      <button
-        className="theme-toggle"
-        onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
-        aria-label="toggle theme"
-        title="toggle theme"
-      >
-        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-      </button>
-
       <header className="kp-header">
         <button className="brand" onClick={() => setTab('apps')} aria-label="kevinprk home">
           <span className="pi-mark">π</span>
           <span>Kevin Park</span>
         </button>
-        <nav>
-          <a href="#apps" onClick={() => setTab('apps')}>apps</a>
-          <a href="#about" onClick={() => setTab('about')}>about</a>
-        </nav>
+        <div className="kp-header-right">
+          <nav>
+            <a href="#apps" onClick={() => setTab('apps')}>apps</a>
+            <a href="#about" onClick={() => setTab('about')}>about</a>
+          </nav>
+          <button
+            className="theme-toggle"
+            onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
+            aria-label="toggle theme"
+            title="toggle theme"
+          >
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </button>
+        </div>
       </header>
 
       {tab === 'apps' ? (
