@@ -81,7 +81,27 @@
   --kp-dur-base:   180ms;
 
   --kp-content-width: 720px;
-  --kp-page-pad:      24px;
+  --kp-page-pad:      20px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --kp-page-pad: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --kp-content-width: 880px;
+    --kp-page-pad: 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --kp-content-width: 1000px;
+    --kp-page-pad: 64px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -238,6 +258,12 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   line-height: var(--kp-leading-tight);
   color: var(--kp-fg);
   margin-bottom: var(--kp-space-4);
+}
+@media (min-width: 1024px) {
+  .kp-home .intro h1 { font-size: 44px; }
+  .kp-home .intro p { font-size: var(--kp-text-lg); }
+  .kp-home .intro { margin-bottom: var(--kp-space-9); }
+  .kp-app-row { padding: var(--kp-space-5) var(--kp-space-4); }
 }
 .kp-home .intro p {
   font-size: var(--kp-text-md);
