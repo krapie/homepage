@@ -28,4 +28,10 @@ export const apps = [
     url: 'https://tiny.kevinprk.com',
     emoji: '🔗',
   },
+  {
+    name: 'Play',
+    description: 'Small interactive experiments',
+    url: 'https://play.kevinprk.com',
+    emoji: '✨',
+  },
 ]
