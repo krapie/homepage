@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { profile, apps } from './data/content'
+import Sunny from './components/Sunny'
 
 function KaraokeIcon() {
   return (
@@ -74,6 +75,7 @@ export default function App() {
 
   return (
     <div className="page-root">
+      <Sunny />
       <header className="kp-header">
         <button className="brand" onClick={() => setTab('apps')} aria-label="kevinprk home">
           <span className="pi-mark">π</span>
@@ -95,6 +97,8 @@ export default function App() {
         </div>
       </header>
 
+      <div className="sky-hero" aria-hidden="true" />
+      <div className="content-panel">
       {tab === 'apps' ? (
         <main className="kp-home">
           <section className="intro">
@@ -152,6 +156,7 @@ export default function App() {
         <span>© {new Date().getFullYear()} kevin park</span>
         <span className="pi" title="3.14">π</span>
       </footer>
+      </div>
     </div>
   )
 }
