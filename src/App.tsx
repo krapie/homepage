@@ -100,8 +100,8 @@ export default function App() {
           <section className="intro">
             <h1>A few small tools.</h1>
             <p>
-              this is where I park things I make for myself. mostly utilities,
-              sometimes references. nothing here is a product. take what's useful.
+              This is where I park things I make for myself. Mostly utilities,
+              sometimes references. Nothing here is a product. Take what's useful.
             </p>
           </section>
 
