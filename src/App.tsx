@@ -33,11 +33,21 @@ function PlayIcon() {
   )
 }
 
+function SlideIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75H3.75a.75.75 0 01-.75-.75V6a.75.75 0 01.75-.75zM12 16.5v2.25M9 21h6" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 9h4.5M7.5 12h9" />
+    </svg>
+  )
+}
+
 const APP_ICONS: Record<string, () => React.ReactElement> = {
   Karaoke: KaraokeIcon,
   Plumber: PlumberIcon,
   Tiny: TinyIcon,
   Play: PlayIcon,
+  Slide: SlideIcon,
 }
 
 function SunIcon() {

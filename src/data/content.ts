@@ -36,7 +36,7 @@ export const apps = [
   },
   {
     name: 'Slide',
-    description: 'Personal presentation slides — HTML/CSS decks authored by Claude',
+    description: 'Personal presentation slides — clean HTML/CSS decks, version-controlled as code',
     url: 'https://slide.kevinprk.com',
     emoji: '🖼️',
   },
