@@ -34,4 +34,10 @@ export const apps = [
     url: 'https://play.kevinprk.com',
     emoji: '✨',
   },
+  {
+    name: 'Slide',
+    description: 'Personal presentation slides — HTML/CSS decks authored by Claude',
+    url: 'https://slide.kevinprk.com',
+    emoji: '🖼️',
+  },
 ]
