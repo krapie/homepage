@@ -23,6 +23,12 @@ export const apps = [
     emoji: '🔧',
   },
   {
+    name: 'Slide',
+    description: 'Personal presentation slides — clean HTML/CSS decks, version-controlled as code',
+    url: 'https://slide.kevinprk.com',
+    emoji: '🖼️',
+  },
+  {
     name: 'Tiny',
     description: 'URL shortener with QR code generation',
     url: 'https://tiny.kevinprk.com',
@@ -33,11 +39,5 @@ export const apps = [
     description: 'Small interactive experiments',
     url: 'https://play.kevinprk.com',
     emoji: '✨',
-  },
-  {
-    name: 'Slide',
-    description: 'Personal presentation slides — clean HTML/CSS decks, version-controlled as code',
-    url: 'https://slide.kevinprk.com',
-    emoji: '🖼️',
   },
 ]
