@@ -18,7 +18,7 @@ export const apps = [
   },
   {
     name: 'Plumber',
-    description: 'Network toolbox — IP check and DNS lookup',
+    description: 'Network toolbox — IP, DNS, TLS, BGP, CIDR, and more',
     url: 'https://plumber.kevinprk.com',
     emoji: '🔧',
   },
