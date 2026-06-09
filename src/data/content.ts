@@ -23,6 +23,12 @@ export const apps = [
     emoji: '🔧',
   },
   {
+    name: 'Utility',
+    description: 'Developer toolbox — hash, base64, regex, JSON, YAML, and more',
+    url: 'https://utility.kevinprk.com',
+    emoji: '🛠️',
+  },
+  {
     name: 'Slide',
     description: 'Personal presentation slides — clean HTML/CSS decks, version-controlled as code',
     url: 'https://slide.kevinprk.com',
