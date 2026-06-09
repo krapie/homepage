@@ -35,6 +35,12 @@ export const apps = [
     emoji: '🖼️',
   },
   {
+    name: 'Paste',
+    description: 'Instant text sharing — paste anything and share via expiring link',
+    url: 'https://paste.kevinprk.com',
+    emoji: '📋',
+  },
+  {
     name: 'Tiny',
     description: 'URL shortener with QR code generation',
     url: 'https://tiny.kevinprk.com',
