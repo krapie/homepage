@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ALL_APPS, NOTES, profile, type AppData, type NoteData } from './data/content'
+import { FEATURED_APPS, NOTES, profile, type AppData, type NoteData } from './data/content'
 
 type Theme = 'light' | 'dark'
 
@@ -21,43 +21,10 @@ function PlumberIcon({ className }: { className?: string }) {
   )
 }
 
-function UtilityIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
-    </svg>
-  )
-}
-
-function SlideIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75H3.75a.75.75 0 01-.75-.75V6a.75.75 0 01.75-.75zM12 16.5v2.25M9 21h6" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 9h4.5M7.5 12h9" />
-    </svg>
-  )
-}
-
-function PasteIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
-    </svg>
-  )
-}
-
 function TinyIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.69a4.5 4.5 0 016.36 6.36l-3.18 3.18a4.5 4.5 0 01-6.36-6.36m6.36-3.18l-3.18 3.18m-3.18 3.18l-3.18 3.18a4.5 4.5 0 01-6.36-6.36l3.18-3.18a4.5 4.5 0 016.36 0" />
-    </svg>
-  )
-}
-
-function PlayIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
     </svg>
   )
 }
@@ -86,61 +53,47 @@ function MoonIcon() {
   )
 }
 
-function ExternalIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-    </svg>
-  )
-}
-
 const APP_ICONS: Record<string, (props: { className?: string }) => React.ReactElement> = {
   karaoke: KaraokeIcon,
   plumber: PlumberIcon,
-  utility: UtilityIcon,
-  slide:   SlideIcon,
-  paste:   PasteIcon,
   tiny:    TinyIcon,
-  play:    PlayIcon,
 }
 
-// ── Shared components ────────────────────────────────────────────────────────
+// ── Components ───────────────────────────────────────────────────────────────
 
-function AppRow({ app }: { app: AppData }) {
+function AppCard({ app }: { app: AppData }) {
   const Icon = APP_ICONS[app.id]
   return (
-    <a href={app.url} target="_blank" rel="noopener noreferrer" className="kp-app-row">
-      <div className="ar-icon">
-        {Icon && <Icon className="ar-icon-svg" />}
+    <a href={app.url} target="_blank" rel="noopener noreferrer" className="kp-app-card">
+      <div className="ac-icon-wrap">
+        {Icon && <Icon className="ac-icon" />}
       </div>
-      <div className="ar-body">
-        <span className="ar-name">{app.name}</span>
-        <span className="ar-desc">{app.desc}</span>
+      <div className="ac-body">
+        <div className="ac-name">{app.name}</div>
+        <div className="ac-desc">{app.desc}</div>
       </div>
-      <span className="ar-arrow">→</span>
+      <div className="ac-arrow">→</div>
     </a>
   )
 }
 
-function NoteRow({ note }: { note: NoteData }) {
+function NoteTeaser({ note }: { note: NoteData }) {
   return (
     <a
-      href={`https://notes.kevinprk.com/${note.id}`}
+      href={`https://note.kevinprk.com/${note.id}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="note-row"
+      className="kp-note-teaser"
     >
-      <span className="note-row-main">
-        <span className="note-row-title">{note.title}</span>
-        <span className="note-row-blurb">{note.blurb}</span>
-        <span className="note-row-tags">
-          {note.tags.map(t => <span className="tag" key={t}>{t}</span>)}
-        </span>
-      </span>
-      <span className="note-row-meta">
-        <span className="mono-dim">{note.date}</span>
-        <span className="mono-dim">{note.read} read</span>
-      </span>
+      <div className="kp-note-teaser-meta">
+        <span className="kp-note-teaser-date">{note.date}</span>
+        <span className="kp-note-teaser-tag">{note.tags[0]}</span>
+      </div>
+      <div className="kp-note-teaser-body">
+        <div className="kp-note-teaser-title">{note.title}</div>
+        <div className="kp-note-teaser-summary">{note.blurb}</div>
+      </div>
+      <div className="kp-note-teaser-link">→</div>
     </a>
   )
 }
@@ -150,14 +103,13 @@ function NoteRow({ note }: { note: NoteData }) {
 function Header({ theme, toggleTheme }: { theme: Theme; toggleTheme: () => void }) {
   return (
     <header className="kp-header">
-      <a href="#" className="kp-brand" aria-label="home">
+      <a href="/" className="kp-brand" aria-label="home">
         <span className="kp-brand-pi">π</span>
         <span className="kp-brand-name">Kevin Park</span>
       </a>
       <nav className="kp-nav">
-        <a href="#apps" className="kp-nav-link">apps</a>
-        <a href="#notes" className="kp-nav-link">notes</a>
-        <a href="#about" className="kp-nav-link">about</a>
+        <a href="https://app.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-nav-link">apps</a>
+        <a href="https://note.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-nav-link">note</a>
         <a
           href={profile.github}
           target="_blank"
@@ -208,56 +160,16 @@ export default function App() {
           <p className="kp-hero-tagline">tools I made for myself.</p>
         </section>
 
-        <section className="kp-section" id="apps">
+        <section className="kp-section">
           <div className="kp-section-label">apps</div>
-          <div role="list">
-            {ALL_APPS.map(app => <AppRow key={app.id} app={app} />)}
+          <div className="kp-app-card-grid">
+            {FEATURED_APPS.map(app => <AppCard key={app.id} app={app} />)}
           </div>
         </section>
 
-        <section className="kp-section" id="notes">
-          <div className="kp-section-label">notes</div>
-          <div className="kp-list">
-            {NOTES.map(note => <NoteRow key={note.id} note={note} />)}
-          </div>
-        </section>
-
-        <section className="kp-section" id="about">
-          <div className="kp-section-label">about</div>
-          <article className="about">
-            <header className="about-head">
-              <span className="about-pi">π</span>
-              <h2>Kevin Park</h2>
-              <p className="about-lede">
-                Cloud support engineer at AWS. I like systems — how they break,
-                why they scale, what the packets are actually doing.
-              </p>
-            </header>
-
-            <section className="about-block">
-              <p>
-                I focus on infrastructure, cloud architecture, DevOps, and distributed
-                systems. The apps and notes here are where that work spills over into
-                things worth sharing — mostly things I wanted that didn't quite exist.
-              </p>
-              <p>
-                I contribute to open source projects including Kubernetes, Istio, Argo,
-                and Yorkie, and enjoy mentoring and sharing through the community.
-              </p>
-            </section>
-
-            <section className="about-block">
-              <h3 className="about-h2">Elsewhere</h3>
-              <div className="about-links">
-                <a className="about-link" href={profile.github} target="_blank" rel="noopener noreferrer">
-                  GitHub <ExternalIcon />
-                </a>
-                <a className="about-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
-                  LinkedIn <ExternalIcon />
-                </a>
-              </div>
-            </section>
-          </article>
+        <section className="kp-section">
+          <div className="kp-section-label">note</div>
+          {NOTES.map(note => <NoteTeaser key={note.id} note={note} />)}
         </section>
       </main>
 
