@@ -209,8 +209,8 @@ function AboutView() {
               <span className="kp-exp-company">KarrotPay</span>
             </div>
             <div className="kp-exp-body">
-              <div className="kp-exp-role">DevOps Engineer Intern</div>
-              <p className="kp-exp-desc">Developed internal tools to improve developer productivity and engineering efficiency.</p>
+              <div className="kp-exp-role">DevOps Engineer</div>
+              <p className="kp-exp-desc">Developed internal tools to improve developer productivity and engineering efficiency, as an intern.</p>
             </div>
           </div>
 
@@ -220,8 +220,8 @@ function AboutView() {
               <span className="kp-exp-company">NAVER Corp</span>
             </div>
             <div className="kp-exp-body">
-              <div className="kp-exp-role">Software Engineer (Freelance)</div>
-              <p className="kp-exp-desc">Designed Sharded Cluster Mode for Yorkie, an open-source document store for collaborative editing applications.</p>
+              <div className="kp-exp-role">Software Engineer</div>
+              <p className="kp-exp-desc">Designed Sharded Cluster Mode for Yorkie, an open-source document store for collaborative editing applications, as a freelance.</p>
             </div>
           </div>
 
