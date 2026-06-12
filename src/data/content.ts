@@ -21,8 +21,9 @@ export const FEATURED_APPS: AppData[] = [
 ]
 
 export const NOTES: NoteData[] = [
-  { id: 'tcp', title: 'The TCP three-way handshake', date: '2026-05-20', read: '4 min', tags: ['networking', 'tcp'], blurb: 'What SYN, SYN-ACK, and ACK actually do — stepped through, packet by packet.' },
-  { id: 'clos', title: 'Clos topology, from the ground up', date: '2026-04-02', read: '6 min', tags: ['networking', 'datacenter'], blurb: 'Why every modern data center is a fabric of leaves and spines.' },
+  { id: 'vpc',  title: 'VPC packet flow',                  date: '2026-06-01', read: '5 min', tags: ['aws', 'networking'],      blurb: 'How packets move inside AWS VPC — Nitro cards, Mapping Service, Hyperplane, and Blackfoot edge.' },
+  { id: 'tcp',  title: 'The TCP three-way handshake',      date: '2026-05-20', read: '4 min', tags: ['networking', 'tcp'],       blurb: 'What SYN, SYN-ACK, and ACK actually do — stepped through, packet by packet.' },
+  { id: 'clos', title: 'Clos vs. RNG topology',            date: '2026-04-10', read: '6 min', tags: ['networking', 'datacenter'], blurb: 'How AWS replaced hierarchical Clos networks with a flat quasi-random topology.' },
 ]
 
 export const profile = {
