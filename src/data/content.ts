@@ -18,6 +18,9 @@ export const FEATURED_APPS: AppData[] = [
   { id: 'karaoke', name: 'Karaoke', desc: 'JPOP lyrics — Japanese, romaji, Korean side-by-side', url: 'https://karaoke.kevinprk.com' },
   { id: 'plumber', name: 'Plumber', desc: 'network toolbox · IP check, DNS lookup, BGP, TLS', url: 'https://plumber.kevinprk.com' },
   { id: 'tiny',    name: 'Tiny',    desc: 'URL shortener with QR code generation', url: 'https://tiny.kevinprk.com' },
+  { id: 'utility', name: 'Utility', desc: 'developer toolbox · hash, base64, regex, JSON, YAML', url: 'https://utility.kevinprk.com' },
+  { id: 'paste',   name: 'Paste',   desc: 'instant text sharing via expiring link', url: 'https://paste.kevinprk.com' },
+  { id: 'play',    name: 'Play',    desc: 'small interactive experiments', url: 'https://play.kevinprk.com' },
 ]
 
 export const NOTES: NoteData[] = [
