@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { FEATURED_APPS, NOTES, profile, type AppData, type NoteData } from './data/content'
 
-type View  = 'home' | 'about'
+type View  = 'home' | 'about' | 'apps' | 'notes'
 type Theme = 'light' | 'dark'
 
 // ── Icon components ──────────────────────────────────────────────────────────
@@ -135,6 +135,14 @@ function NoteTeaser({ note }: { note: NoteData }) {
   )
 }
 
+function IframeView({ src }: { src: string }) {
+  return (
+    <div className="kp-iframe-view">
+      <iframe src={src} title="embedded app" />
+    </div>
+  )
+}
+
 // ── Views ────────────────────────────────────────────────────────────────────
 
 function HomeView() {
@@ -255,6 +263,9 @@ function Header({
   theme: Theme
   toggleTheme: () => void
 }) {
+  function navToggle(target: View) {
+    setView(view === target ? 'home' : target)
+  }
   return (
     <header className="kp-header">
       <button className="kp-brand" onClick={() => setView('home')} aria-label="home">
@@ -262,11 +273,19 @@ function Header({
         <span className="kp-brand-name">Kevin Park</span>
       </button>
       <nav className="kp-nav">
-        <a href="https://app.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-nav-link">apps</a>
-        <a href="https://note.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-nav-link">notes</a>
         <button
           className="kp-nav-link"
-          onClick={() => setView(view === 'about' ? 'home' : 'about')}
+          onClick={() => navToggle('apps')}
+          style={{ color: view === 'apps' ? 'var(--kp-fg)' : undefined }}
+        >apps</button>
+        <button
+          className="kp-nav-link"
+          onClick={() => navToggle('notes')}
+          style={{ color: view === 'notes' ? 'var(--kp-fg)' : undefined }}
+        >notes</button>
+        <button
+          className="kp-nav-link"
+          onClick={() => navToggle('about')}
           style={{ color: view === 'about' ? 'var(--kp-fg)' : undefined }}
         >about</button>
         <a
@@ -309,12 +328,16 @@ export default function App() {
 
   const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light')
 
+  const isIframe = view === 'apps' || view === 'notes'
+
   return (
     <div className="app">
       <Header view={view} setView={setView} theme={theme} toggleTheme={toggleTheme} />
       {view === 'home'  && <HomeView />}
       {view === 'about' && <AboutView />}
-      <Footer />
+      {view === 'apps'  && <IframeView src="https://app.kevinprk.com?embed=1" />}
+      {view === 'notes' && <IframeView src="https://note.kevinprk.com?embed=1" />}
+      {!isIframe && <Footer />}
     </div>
   )
 }
