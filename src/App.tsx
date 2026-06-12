@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { FEATURED_APPS, NOTES, profile, type AppData, type NoteData } from './data/content'
 
+type View  = 'home' | 'about'
 type Theme = 'light' | 'dark'
 
 // ── Icon components ──────────────────────────────────────────────────────────
@@ -24,7 +25,8 @@ function PlumberIcon({ className }: { className?: string }) {
 function TinyIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.69a4.5 4.5 0 016.36 6.36l-3.18 3.18a4.5 4.5 0 01-6.36-6.36m6.36-3.18l-3.18 3.18m-3.18 3.18l-3.18 3.18a4.5 4.5 0 01-6.36-6.36l3.18-3.18a4.5 4.5 0 016.36 0" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75V16.5zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z" />
     </svg>
   )
 }
@@ -33,6 +35,14 @@ function GitHubIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.185 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.031 1.531 1.031.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
+    </svg>
+  )
+}
+
+function ExternalIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
     </svg>
   )
 }
@@ -98,18 +108,130 @@ function NoteTeaser({ note }: { note: NoteData }) {
   )
 }
 
+// ── Views ────────────────────────────────────────────────────────────────────
+
+function HomeView() {
+  return (
+    <main className="kp-home">
+      <section className="kp-hero">
+        <h1 className="kp-hero-name">Kevin Park</h1>
+        <div className="kp-hero-rule" />
+        <p className="kp-hero-tagline">Apps and notes, for myself.</p>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
+          <div className="kp-section-label">featured apps</div>
+          <a href="https://app.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-section-more">all apps →</a>
+        </div>
+        <div className="kp-app-card-grid">
+          {FEATURED_APPS.map(app => <AppCard key={app.id} app={app} />)}
+        </div>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
+          <div className="kp-section-label">featured notes</div>
+          <a href="https://note.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-section-more">all notes →</a>
+        </div>
+        {NOTES.map(note => <NoteTeaser key={note.id} note={note} />)}
+      </section>
+    </main>
+  )
+}
+
+function AboutView() {
+  return (
+    <main className="kp-home">
+      <section className="kp-hero">
+        <h1 className="kp-hero-name">Kevin Park</h1>
+        <div className="kp-hero-rule" />
+        <p className="kp-hero-tagline">Cloud engineer, open source contributor.</p>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
+          <div className="kp-section-label">experience</div>
+        </div>
+        <div className="kp-exp-list">
+
+          <div className="kp-exp-item">
+            <div className="kp-exp-meta">
+              <span className="kp-exp-period">2024 — present</span>
+              <span className="kp-exp-company">Amazon Web Services</span>
+            </div>
+            <div className="kp-exp-body">
+              <div className="kp-exp-role">Cloud Support Engineer</div>
+              <p className="kp-exp-desc">Providing technical support to customers specializing in AWS networking services.</p>
+            </div>
+          </div>
+
+          <div className="kp-exp-item">
+            <div className="kp-exp-meta">
+              <span className="kp-exp-period">Jun — Aug 2023</span>
+              <span className="kp-exp-company">KarrotPay</span>
+            </div>
+            <div className="kp-exp-body">
+              <div className="kp-exp-role">DevOps Engineer Intern</div>
+              <p className="kp-exp-desc">Developed internal tools to improve developer productivity and engineering efficiency.</p>
+            </div>
+          </div>
+
+          <div className="kp-exp-item">
+            <div className="kp-exp-meta">
+              <span className="kp-exp-period">Feb — Jun 2023</span>
+              <span className="kp-exp-company">NAVER Corp</span>
+            </div>
+            <div className="kp-exp-body">
+              <div className="kp-exp-role">Software Engineer (Freelance)</div>
+              <p className="kp-exp-desc">Designed Sharded Cluster Mode for Yorkie, an open-source document store for collaborative editing applications.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
+          <div className="kp-section-label">elsewhere</div>
+        </div>
+        <div className="kp-about-links">
+          <a className="kp-about-link" href={profile.github} target="_blank" rel="noopener noreferrer">
+            GitHub <ExternalIcon />
+          </a>
+          <a className="kp-about-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn <ExternalIcon />
+          </a>
+        </div>
+      </section>
+    </main>
+  )
+}
+
 // ── Shell ────────────────────────────────────────────────────────────────────
 
-function Header({ theme, toggleTheme }: { theme: Theme; toggleTheme: () => void }) {
+function Header({
+  view, setView, theme, toggleTheme,
+}: {
+  view: View
+  setView: (v: View) => void
+  theme: Theme
+  toggleTheme: () => void
+}) {
   return (
     <header className="kp-header">
-      <a href="/" className="kp-brand" aria-label="home">
+      <button className="kp-brand" onClick={() => setView('home')} aria-label="home">
         <span className="kp-brand-pi">π</span>
         <span className="kp-brand-name">Kevin Park</span>
-      </a>
+      </button>
       <nav className="kp-nav">
         <a href="https://app.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-nav-link">apps</a>
         <a href="https://note.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-nav-link">note</a>
+        <button
+          className="kp-nav-link"
+          onClick={() => setView(view === 'about' ? 'home' : 'about')}
+          style={{ color: view === 'about' ? 'var(--kp-fg)' : undefined }}
+        >about</button>
         <a
           href={profile.github}
           target="_blank"
@@ -139,6 +261,7 @@ function Footer() {
 // ── App ──────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const [view, setView]   = useState<View>('home')
   const [theme, setTheme] = useState<Theme>(() =>
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   )
@@ -151,28 +274,9 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header theme={theme} toggleTheme={toggleTheme} />
-
-      <main className="kp-home">
-        <section className="kp-hero">
-          <h1 className="kp-hero-name">Kevin Park</h1>
-          <div className="kp-hero-rule" />
-          <p className="kp-hero-tagline">tools I made for myself.</p>
-        </section>
-
-        <section className="kp-section">
-          <div className="kp-section-label">apps</div>
-          <div className="kp-app-card-grid">
-            {FEATURED_APPS.map(app => <AppCard key={app.id} app={app} />)}
-          </div>
-        </section>
-
-        <section className="kp-section">
-          <div className="kp-section-label">note</div>
-          {NOTES.map(note => <NoteTeaser key={note.id} note={note} />)}
-        </section>
-      </main>
-
+      <Header view={view} setView={setView} theme={theme} toggleTheme={toggleTheme} />
+      {view === 'home'  && <HomeView />}
+      {view === 'about' && <AboutView />}
       <Footer />
     </div>
   )
