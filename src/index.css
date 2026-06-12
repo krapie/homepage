@@ -489,6 +489,20 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 
 
+/* About intro */
+.kp-about-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kp-space-4);
+  padding: var(--kp-space-4) 0;
+  max-width: 52ch;
+}
+.kp-about-intro p {
+  font-size: var(--kp-text-base);
+  color: var(--kp-fg-2);
+  line-height: var(--kp-leading-relaxed);
+}
+
 /* Experience list (about view) */
 .kp-exp-list {
   display: flex;

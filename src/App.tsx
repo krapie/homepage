@@ -146,7 +146,17 @@ function AboutView() {
       <section className="kp-hero">
         <h1 className="kp-hero-name">Kevin Park</h1>
         <div className="kp-hero-rule" />
-        <p className="kp-hero-tagline">Cloud engineer, open source contributor.</p>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
+          <div className="kp-section-label">intro</div>
+        </div>
+        <div className="kp-about-intro">
+          <p>Hi, I'm Kevin Park 👋</p>
+          <p>I'm a cloud support engineer at Amazon Web Services (AWS). And I'm interested in overall infrastructure, architecture, cloud, devops, distributed systems and so on.</p>
+          <p>I'm also an open source member of Kubernetes, Istio, Argo, Yorkie and have many other open source activities. And I love to share my knowledge through contributing and mentoring.</p>
+        </div>
       </section>
 
       <section className="kp-section">
