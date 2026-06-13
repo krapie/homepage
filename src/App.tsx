@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FEATURED_APPS, NOTES, profile, type AppData, type NoteData } from './data/content'
 
 type View  = 'home' | 'about' | 'apps' | 'notes'
@@ -135,10 +135,17 @@ function NoteTeaser({ note }: { note: NoteData }) {
   )
 }
 
-function IframeView({ src }: { src: string }) {
+function IframeView({ baseSrc, theme }: { baseSrc: string; theme: Theme }) {
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [src] = useState(`${baseSrc}&theme=${theme}`)
+
+  useEffect(() => {
+    iframeRef.current?.contentWindow?.postMessage({ type: 'kp-theme', theme }, '*')
+  }, [theme])
+
   return (
     <div className="kp-iframe-view">
-      <iframe src={src} title="embedded app" />
+      <iframe ref={iframeRef} src={src} title="embedded app" />
     </div>
   )
 }
@@ -335,8 +342,8 @@ export default function App() {
       <Header view={view} setView={setView} theme={theme} toggleTheme={toggleTheme} />
       {view === 'home'  && <HomeView />}
       {view === 'about' && <AboutView />}
-      {view === 'apps'  && <IframeView src="https://app.kevinprk.com?embed=1" />}
-      {view === 'notes' && <IframeView src="https://note.kevinprk.com?embed=1" />}
+      {view === 'apps'  && <IframeView baseSrc="https://app.kevinprk.com?embed=1" theme={theme} />}
+      {view === 'notes' && <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} />}
       {!isIframe && <Footer />}
     </div>
   )
