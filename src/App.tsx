@@ -342,8 +342,12 @@ export default function App() {
       <Header view={view} setView={setView} theme={theme} toggleTheme={toggleTheme} />
       {view === 'home'  && <HomeView />}
       {view === 'about' && <AboutView />}
-      {view === 'apps'  && <IframeView baseSrc="https://app.kevinprk.com?embed=1" theme={theme} />}
-      {view === 'notes' && <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} />}
+      <div className={view === 'apps' ? 'kp-iframe-slot' : 'kp-iframe-slot-hidden'}>
+        <IframeView baseSrc="https://app.kevinprk.com?embed=1" theme={theme} />
+      </div>
+      <div className={view === 'notes' ? 'kp-iframe-slot' : 'kp-iframe-slot-hidden'}>
+        <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} />
+      </div>
       {!isIframe && <Footer />}
     </div>
   )
