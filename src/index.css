@@ -479,6 +479,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
 }
 .kp-note-teaser-link {
   font-family: var(--kp-font-mono);
@@ -653,4 +654,5 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   .kp-app-card-grid { grid-template-columns: 1fr; }
   .kp-note-teaser { display: flex; flex-direction: column; gap: var(--kp-space-2); }
   .kp-note-teaser-link { align-self: flex-start; }
+  .kp-note-teaser-summary { white-space: normal; overflow: visible; text-overflow: initial; }
 }
