@@ -388,6 +388,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   border-radius: var(--kp-radius-md);
   background: var(--kp-bg);
   text-decoration: none;
+  min-width: 0;
   transition: background var(--kp-dur-fast) var(--kp-ease), border-color var(--kp-dur-fast) var(--kp-ease);
 }
 .kp-app-card:hover {
