@@ -135,13 +135,21 @@ function NoteTeaser({ note }: { note: NoteData }) {
   )
 }
 
-function IframeView({ baseSrc, theme }: { baseSrc: string; theme: Theme }) {
+function IframeView({ baseSrc, theme, active }: { baseSrc: string; theme: Theme; active: boolean }) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const [src] = useState(`${baseSrc}&theme=${theme}`)
+  const src = `${baseSrc}&theme=${theme}`
 
   useEffect(() => {
     iframeRef.current?.contentWindow?.postMessage({ type: 'kp-theme', theme }, '*')
   }, [theme])
+
+  // Reload whenever the tab becomes active so the iframe always shows fresh deployed content.
+  useEffect(() => {
+    if (active && iframeRef.current) {
+      iframeRef.current.src = src
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active])
 
   return (
     <div className="kp-iframe-view">
@@ -343,10 +351,10 @@ export default function App() {
       {view === 'home'  && <HomeView />}
       {view === 'about' && <AboutView />}
       <div className={view === 'apps' ? 'kp-iframe-slot' : 'kp-iframe-slot-hidden'}>
-        <IframeView baseSrc="https://app.kevinprk.com?embed=1" theme={theme} />
+        <IframeView baseSrc="https://app.kevinprk.com?embed=1" theme={theme} active={view === 'apps'} />
       </div>
       <div className={view === 'notes' ? 'kp-iframe-slot' : 'kp-iframe-slot-hidden'}>
-        <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} />
+        <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} active={view === 'notes'} />
       </div>
       {!isIframe && <Footer />}
     </div>
