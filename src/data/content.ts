@@ -24,7 +24,7 @@ export const FEATURED_APPS: AppData[] = [
 ]
 
 export const NOTES: NoteData[] = [
-  { id: 'tcp',  title: 'All about TCP',                    date: '2026-06-13', read: '4 min', tags: ['networking', 'tcp'],       blurb: 'What SYN, SYN-ACK, and ACK actually do — stepped through, packet by packet.' },
+  { id: 'crdt', title: 'CRDT — conflict-free collaborative editing', date: '2026-06-22', read: '6 min', tags: ['distributed-systems', 'crdt'], blurb: 'How Conflict-free Replicated Data Types let multiple users edit the same document without a central server.' },
   { id: 'vpc',  title: 'VPC packet flow',                  date: '2026-06-13', read: '5 min', tags: ['aws', 'networking'],      blurb: 'How packets move inside AWS VPC — Nitro cards, Mapping Service, Hyperplane, and Blackfoot edge.' },
   { id: 'clos', title: 'Clos vs. RNG topology',            date: '2026-06-13', read: '6 min', tags: ['networking', 'datacenter'], blurb: 'How AWS replaced hierarchical Clos networks with a flat quasi-random topology.' },
 ]
