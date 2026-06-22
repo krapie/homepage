@@ -135,13 +135,20 @@ function NoteTeaser({ note }: { note: NoteData }) {
   )
 }
 
-function IframeView({ baseSrc, theme, active }: { baseSrc: string; theme: Theme; active: boolean }) {
+type Lang = 'en' | 'ko'
+
+function IframeView({ baseSrc, theme, lang, active }: { baseSrc: string; theme: Theme; lang?: Lang; active: boolean }) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const src = `${baseSrc}&theme=${theme}`
+  const langSuffix = lang ? `&lang=${lang}` : ''
+  const src = `${baseSrc}&theme=${theme}${langSuffix}`
 
   useEffect(() => {
     iframeRef.current?.contentWindow?.postMessage({ type: 'kp-theme', theme }, '*')
   }, [theme])
+
+  useEffect(() => {
+    if (lang) iframeRef.current?.contentWindow?.postMessage({ type: 'kp-lang', lang }, '*')
+  }, [lang])
 
   // Reload whenever the tab becomes active so the iframe always shows fresh deployed content.
   useEffect(() => {
@@ -271,12 +278,14 @@ function AboutView() {
 // ── Shell ────────────────────────────────────────────────────────────────────
 
 function Header({
-  view, setView, theme, toggleTheme,
+  view, setView, theme, toggleTheme, lang, toggleLang,
 }: {
   view: View
   setView: (v: View) => void
   theme: Theme
   toggleTheme: () => void
+  lang: Lang
+  toggleLang: () => void
 }) {
   function navToggle(target: View) {
     setView(view === target ? 'home' : target)
@@ -312,6 +321,11 @@ function Header({
         >
           <GitHubIcon className="kp-github-icon" />
         </a>
+        {view === 'notes' && (
+          <button className="theme-toggle lang-toggle" onClick={toggleLang} aria-label="toggle language">
+            {lang === 'en' ? 'KR' : 'EN'}
+          </button>
+        )}
         <button className="theme-toggle" onClick={toggleTheme} aria-label="toggle theme">
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </button>
@@ -336,25 +350,27 @@ export default function App() {
   const [theme, setTheme] = useState<Theme>(() =>
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   )
+  const [lang, setLang] = useState<Lang>('en')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
   const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light')
+  const toggleLang  = () => setLang(l => l === 'en' ? 'ko' : 'en')
 
   const isIframe = view === 'apps' || view === 'notes'
 
   return (
     <div className="app">
-      <Header view={view} setView={setView} theme={theme} toggleTheme={toggleTheme} />
+      <Header view={view} setView={setView} theme={theme} toggleTheme={toggleTheme} lang={lang} toggleLang={toggleLang} />
       {view === 'home'  && <HomeView />}
       {view === 'about' && <AboutView />}
       <div className={view === 'apps' ? 'kp-iframe-slot' : 'kp-iframe-slot-hidden'}>
         <IframeView baseSrc="https://app.kevinprk.com?embed=1" theme={theme} active={view === 'apps'} />
       </div>
       <div className={view === 'notes' ? 'kp-iframe-slot' : 'kp-iframe-slot-hidden'}>
-        <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} active={view === 'notes'} />
+        <IframeView baseSrc="https://note.kevinprk.com?embed=1" theme={theme} lang={lang} active={view === 'notes'} />
       </div>
       {!isIframe && <Footer />}
     </div>
