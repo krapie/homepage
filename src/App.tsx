@@ -160,7 +160,7 @@ function IframeView({ baseSrc, theme, lang, active }: { baseSrc: string; theme: 
 
   return (
     <div className="kp-iframe-view">
-      <iframe ref={iframeRef} src={src} title="embedded app" />
+      <iframe ref={iframeRef} title="embedded app" />
     </div>
   )
 }
