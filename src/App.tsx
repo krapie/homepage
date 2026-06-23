@@ -150,10 +150,10 @@ function IframeView({ baseSrc, theme, lang, active }: { baseSrc: string; theme: 
     if (lang) iframeRef.current?.contentWindow?.postMessage({ type: 'kp-lang', lang }, '*')
   }, [lang])
 
-  // Reload whenever the tab becomes active so the iframe always shows fresh deployed content.
+  // Append timestamp so the browser treats each activation as a new URL and skips cache.
   useEffect(() => {
     if (active && iframeRef.current) {
-      iframeRef.current.src = src
+      iframeRef.current.src = `${src}&_=${Date.now()}`
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active])
