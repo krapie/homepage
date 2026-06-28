@@ -20,7 +20,7 @@ export const FEATURED_APPS: AppData[] = [
   { id: 'tiny',    name: 'Tiny',    desc: 'URL shortener with QR code generation',                url: 'https://tiny.kevinprk.com'    },
   { id: 'utility', name: 'Utility', desc: 'Dev toolbox — Hash, Base64, JSON, YAML, Regex',       url: 'https://utility.kevinprk.com' },
   { id: 'paste',   name: 'Paste',   desc: 'Text sharing with configurable TTL up to 24h',        url: 'https://paste.kevinprk.com'   },
-  { id: 'play',    name: 'Play',    desc: 'Small interactive experiments',                        url: 'https://play.kevinprk.com'    },
+  { id: 'task',    name: 'Task',    desc: 'Daily task board — routine + bonus tasks, auto-reset', url: 'https://task.kevinprk.com'    },
 ]
 
 export const NOTES: NoteData[] = [
