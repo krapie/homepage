@@ -1,30 +1,18 @@
-# homepage
+# Homepage
 
-Personal homepage at [kevinprk.com](https://kevinprk.com). A minimal link-in-bio page with animated cards linking to GitHub and LinkedIn.
+Personal homepage. **Live:** [kevinprk.com](https://kevinprk.com)
 
-## Stack
+## Features
 
-- **React 19** + **TypeScript**
-- **Vite** — build tooling
-- **Tailwind CSS v4** — styling
-- **Framer Motion** — entrance animations
-- **Lucide React** — icons
+| Feature | Description |
+|---------|-------------|
+| **Link-in-bio** | Animated cards linking to GitHub, LinkedIn, and other profiles |
+| **App gallery** | Links to all apps on kevinprk.com |
+| **Design system** | Follows the kevinprk design system — neutral palette, Inter + JetBrains Mono |
 
-## Local Development
+## Getting Started
 
-```sh
+```bash
 npm install
-npm run dev
+npm run dev   # http://localhost:5173
 ```
-
-## Build
-
-```sh
-npm run build   # outputs to dist/
-```
-
-The `build-push.sh` script builds the Docker image and pushes it to the registry for deployment.
-
-## Deployment
-
-Deployed to Kubernetes via ArgoCD. The `k8s/homepage/` directory in the root of the repo contains the Deployment, Service, and HTTPRoute manifests. ArgoCD syncs from the `main` branch automatically.
