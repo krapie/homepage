@@ -503,7 +503,6 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   flex-direction: column;
   gap: var(--kp-space-4);
   padding: var(--kp-space-4) 0;
-  max-width: 52ch;
 }
 .kp-about-intro p {
   font-size: var(--kp-text-base);
