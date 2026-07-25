@@ -204,9 +204,9 @@ function AboutView() {
         </div>
         <div className="kp-about-intro">
           <p>Hi, I'm Kevin Park 👋</p>
-          <p>I'm a Cloud Support Engineer at Amazon Web Services (AWS), specializing in networking and compute services, from Amazon VPC to Amazon EC2. I provide technical support to customers around the world, helping them design, troubleshoot, and operate cloud-native workloads at scale.</p>
-          <p>Beyond my work at AWS, I'm passionate about software engineering across the entire technology stack—from data structures and networking to distributed systems, cloud infrastructure, system architecture, and AI. I enjoy building tools, experimenting with new technologies, and writing about what I learn.</p>
-          <p>I'm also an active open source contributor to CNCF projects such as Kubernetes and Argo, as well as community-driven projects like Yorkie. Through open source, technical writing, and mentoring, I enjoy sharing knowledge and helping others grow.</p>
+          <p>I'm a Cloud Support Engineer at Amazon Web Services (AWS), specializing in networking and compute services, from VPC to EC2. I provide technical support to customers around the world, helping them design, troubleshoot, and operate cloud-native workloads at scale.</p>
+          <p>Beyond my work at AWS, I'm passionate about software engineering across the entire technology stack from data structures and networking to distributed systems, cloud infrastructure, system architecture, and AI. I enjoy building tools, experimenting with new technologies, and writing about what I learn.</p>
+          <p>I'm also an active open source contributor to CNCF projects such as Kubernetes and Argo, as well as community driven projects like Yorkie. Through open source, technical writing, and mentoring, I enjoy sharing knowledge and helping others grow.</p>
         </div>
       </section>
 
