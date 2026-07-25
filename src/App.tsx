@@ -254,6 +254,45 @@ function AboutView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
+          <div className="kp-section-label">activity</div>
+        </div>
+        <div className="kp-exp-list">
+
+          <div className="kp-exp-item">
+            <div className="kp-exp-meta">
+              <span className="kp-exp-period">Mar — Nov 2023</span>
+              <span className="kp-exp-company">Open Frontier</span>
+            </div>
+            <div className="kp-exp-body">
+              <div className="kp-exp-role">Open Frontier Developer &amp; Mentor</div>
+              <p className="kp-exp-desc">Developed the Yorkie project as part of Open Frontier, then returned as a mentor and lead mentor for the Opensource Playground program in 2023 and 2024.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
+          <div className="kp-section-label">education</div>
+        </div>
+        <div className="kp-exp-list">
+
+          <div className="kp-exp-item">
+            <div className="kp-exp-meta">
+              <span className="kp-exp-period">2018 — 2024</span>
+              <span className="kp-exp-company">Sejong University</span>
+            </div>
+            <div className="kp-exp-body">
+              <div className="kp-exp-role">B.S. in Computer Science and Engineering</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="kp-section">
+        <div className="kp-section-header">
           <div className="kp-section-label">elsewhere</div>
         </div>
         <div className="kp-about-links">
