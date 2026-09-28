@@ -377,7 +377,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 /* App card grid */
 .kp-app-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: var(--kp-space-3);
 }
 .kp-app-card {
@@ -423,10 +423,6 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   font-size: var(--kp-text-xs);
   color: var(--kp-fg-3);
   line-height: var(--kp-leading-normal);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
 }
 .ac-arrow {
   font-family: var(--kp-font-mono);
@@ -654,11 +650,16 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 
 @media (max-width: 600px) {
-  .kp-nav-link { display: none; }
+  .kp-nav { gap: var(--kp-space-4); }
+  .kp-nav-github { display: none; }
   .kp-hero-name { font-size: var(--kp-text-3xl); }
   .kp-hero-tagline { font-size: var(--kp-text-md); }
   .kp-app-card-grid { grid-template-columns: 1fr; }
   .kp-note-teaser { display: flex; flex-direction: column; gap: var(--kp-space-2); }
   .kp-note-teaser-link { align-self: flex-start; }
   .kp-note-teaser-summary { white-space: normal; overflow: visible; text-overflow: initial; }
+}
+
+@media (max-width: 360px) {
+  .kp-brand-name { display: none; }
 }

@@ -18,11 +18,9 @@ export const FEATURED_APPS: AppData[] = [
   { id: 'task',    name: 'Task',    desc: 'Daily task board — routine + bonus tasks, auto-reset', url: 'https://task.kevinprk.com'    },
   { id: 'plumber', name: 'Plumber', desc: 'Network toolbox — IP, DNS, BGP, TLS, CIDR',           url: 'https://plumber.kevinprk.com' },
   { id: 'utility', name: 'Utility', desc: 'Dev toolbox — Hash, Base64, JSON, YAML, Regex',       url: 'https://utility.kevinprk.com' },
-  { id: 'speed',   name: 'Speed',   desc: 'Internet speed test — download, upload, ping',        url: 'https://speed.kevinprk.com'   },
   { id: 'tiny',    name: 'Tiny',    desc: 'URL shortener with QR code generation',                url: 'https://tiny.kevinprk.com'    },
   { id: 'paste',   name: 'Paste',   desc: 'Text sharing with configurable TTL up to 24h',        url: 'https://paste.kevinprk.com'   },
   { id: 'karaoke', name: 'Karaoke', desc: 'JPOP lyrics — Japanese, romaji, Korean side-by-side', url: 'https://karaoke.kevinprk.com' },
-  { id: 'play',    name: 'Play',    desc: 'Small interactive experiments',                        url: 'https://play.kevinprk.com'    },
 ]
 
 export const NOTES: NoteData[] = [
