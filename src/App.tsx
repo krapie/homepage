@@ -171,8 +171,8 @@ function HomeView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">featured apps</div>
-          <a href="https://app.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-section-more">all apps →</a>
+          <div className="kp-section-label">Featured apps</div>
+          <a href="https://app.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-section-more">All apps →</a>
         </div>
         <div className="kp-app-card-grid">
           {FEATURED_APPS.map(app => <AppCard key={app.id} app={app} />)}
@@ -181,8 +181,8 @@ function HomeView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">featured notes</div>
-          <a href="https://note.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-section-more">all notes →</a>
+          <div className="kp-section-label">Featured notes</div>
+          <a href="https://note.kevinprk.com" target="_blank" rel="noopener noreferrer" className="kp-section-more">All notes →</a>
         </div>
         {NOTES.map(note => <NoteTeaser key={note.id} note={note} />)}
       </section>
@@ -200,7 +200,7 @@ function AboutView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">intro</div>
+          <div className="kp-section-label">Intro</div>
         </div>
         <div className="kp-about-intro">
           <p>Hi, I'm Kevin Park 👋</p>
@@ -212,7 +212,7 @@ function AboutView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">experience</div>
+          <div className="kp-section-label">Experience</div>
         </div>
         <div className="kp-exp-list">
 
@@ -254,7 +254,7 @@ function AboutView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">activity</div>
+          <div className="kp-section-label">Activity</div>
         </div>
         <div className="kp-exp-list">
 
@@ -274,7 +274,7 @@ function AboutView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">education</div>
+          <div className="kp-section-label">Education</div>
         </div>
         <div className="kp-exp-list">
 
@@ -293,7 +293,7 @@ function AboutView() {
 
       <section className="kp-section">
         <div className="kp-section-header">
-          <div className="kp-section-label">elsewhere</div>
+          <div className="kp-section-label">Elsewhere</div>
         </div>
         <div className="kp-about-links">
           <a className="kp-about-link" href={profile.github} target="_blank" rel="noopener noreferrer">
@@ -332,17 +332,17 @@ function Header({
           className="kp-nav-link"
           onClick={() => navToggle('apps')}
           style={{ color: view === 'apps' ? 'var(--kp-fg)' : undefined }}
-        >apps</button>
+        >Apps</button>
         <button
           className="kp-nav-link"
           onClick={() => navToggle('notes')}
           style={{ color: view === 'notes' ? 'var(--kp-fg)' : undefined }}
-        >notes</button>
+        >Notes</button>
         <button
           className="kp-nav-link"
           onClick={() => navToggle('about')}
           style={{ color: view === 'about' ? 'var(--kp-fg)' : undefined }}
-        >about</button>
+        >About</button>
         <a
           href={profile.github}
           target="_blank"
